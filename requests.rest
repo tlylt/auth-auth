@@ -1,0 +1,86 @@
+### CHECK SERVER ALIVE
+GET http://localhost:8000/api/v1/auth/status
+
+### CREATE USER
+POST http://localhost:8000/api/v1/auth
+Content-Type: application/json
+
+{
+    "username": "test",
+    "password": "test"
+}
+
+### UPDATE USER
+PUT http://localhost:8000/api/v1/auth
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJpYXQiOjE2NjI1NjY0MTksImV4cCI6MTY2MjU2NzMxOX0.QYeoCA_qNSWfnY9wyJjWEvmT6p8T0XO6Oz7iadSwbyE
+
+{
+    "role": 2
+}
+
+### GET USER
+GET http://localhost:8000/api/v1/auth
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJpYXQiOjE2NjI1NjY0MTksImV4cCI6MTY2MjU2NzMxOX0.QYeoCA_qNSWfnY9wyJjWEvmT6p8T0XO6Oz7iadSwbyE
+
+### DELETE USER
+DELETE http://localhost:8000/api/v1/auth
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJpYXQiOjE2NjI1NjYxMTgsImV4cCI6MTY2MjU2NzAxOH0.7u4he3mncLOWH-o9EYFFpSd_-DT822X1FONZ4WFeZOk
+
+
+### LOGIN BASIC
+POST http://localhost:8000/api/v1/auth/login
+Content-Type: application/json
+
+{
+    "username": "basic",
+    "password": "basic"
+}
+
+### LOGIN ADMIN
+POST http://localhost:8000/api/v1/auth/login
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "admin"
+}
+
+### GET AUTHENTICATED
+GET http://localhost:8000/api/v1/auth/authenticated
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJhc2ljIiwicm9sZSI6MSwiaWF0IjoxNjY0NDY0NDkwLCJleHAiOjE2NjQ0NjQ1NTB9.VkHVkHGWmL6XEwfjIuUWbye2hsS6RDD17Lx6pYBO54w
+
+### GET BASIC
+GET http://localhost:8000/api/v1/auth/basic
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJyb2xlIjoxLCJpYXQiOjE2NjQ0NjQ3ODksImV4cCI6MTY2NDQ2NDg0OX0.G3r9Vgkzs67MqMo22D_Nit4owD-ObgwZufSwtl3Q-QE
+
+### GET ADMIN
+GET http://localhost:8000/api/v1/auth/admin
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJyb2xlIjoxLCJpYXQiOjE2NjQ0NjQ3ODksImV4cCI6MTY2NDQ2NDg0OX0.G3r9Vgkzs67MqMo22D_Nit4owD-ObgwZufSwtl3Q-QE
+
+### LOGOUT (Need to login to get the access token from response object)
+POST http://localhost:8000/api/v1/auth/logout
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJhc2ljIiwicm9sZSI6MSwiaWF0IjoxNjY0NDY0NjMxLCJleHAiOjE2NjQ0NjQ2OTF9.2AgE3d_O5ytKBkcOn-vyKkVATqZhW30m3TvB5h9drpw
+
+### TOKEN REFRESH
+POST http://localhost:8000/api/v1/auth/token
+Content-Type: application/json
+Cookie: jwt_refresh_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJpYXQiOjE2NjIzMDYzNjAsImV4cCI6MTY2MjkxMTE2MH0.biena8VzR0shF4Q84qIi2aNzd3yWi87DQ0Vn4rQojRk"
+
+### DELETE USER
+DELETE http://localhost:8000/api/v1/auth/delete
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "admin"
+}
+
+### LOGIN TEST
+POST http://localhost:8000/api/v1/auth/login
+Content-Type: application/json
+
+{
+    "username": "test",
+    "password": "test"
+}
